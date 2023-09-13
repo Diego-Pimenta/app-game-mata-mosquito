@@ -5,6 +5,7 @@ var tempo = 15
 
 var criaMosquitoTempo = 1500
 
+// recebe o valor do nível passado pelo link
 var nivel = window.location.search
 nivel = nivel.replace('?', '')
 
@@ -19,8 +20,6 @@ if(nivel === 'normal') {
 function ajustaTamanhoPalcoJogo() {
     altura = window.innerHeight
     largura = window.innerWidth
-
-    console.log(altura, largura)
 }
 
 ajustaTamanhoPalcoJogo()
@@ -57,11 +56,9 @@ function posicaoRandomica() {
     posicaoX = posicaoX < 0 ? 0 : posicaoX
     posicaoY = posicaoY < 0 ? 0 : posicaoY
 
-    console.log(posicaoX, posicaoY)
-
     // criar o elemento html
     var mosquito = document.createElement('img')
-    mosquito.src = 'imagens/mosca.png'
+    mosquito.src = 'imagens/mosquito.png'
     mosquito.className = tamanhoAleatorio() + ' ' + ladoAleatorio()
     mosquito.style.left = posicaoX + 'px'
     mosquito.style.top = posicaoY + 'px'
@@ -71,6 +68,7 @@ function posicaoRandomica() {
         this.remove()
     }
 
+    // faz a inserção do elemento criado no body
     document.body.appendChild(mosquito)
 }
 
